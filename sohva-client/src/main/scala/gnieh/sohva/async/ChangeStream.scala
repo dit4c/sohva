@@ -105,7 +105,7 @@ private class ChangeActor(database: Database, since: Option[Int], filter: Option
           "feed" -> "continuous",
           "since" -> since.map(_.toString).getOrElse("now"),
           "include_docs" -> "true",
-          "heartbeat" -> "true"
+          "heartbeat" -> 60000.toString
         )
         filter match {
           case Some(filter) => base + ("filter" -> filter)
